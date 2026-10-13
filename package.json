@@ -2,9 +2,10 @@
   "name": "fbdock",
   "version": "1.0.0",
   "description": "FBDock - Facebook Video Downloader Online",
+  "main": "server.js",
   "scripts": {
-    "start": "node dev-server.js",
-    "dev": "node dev-server.js"
+    "start": "node server.js",
+    "dev": "node server.js"
   },
   "keywords": [
     "facebook",

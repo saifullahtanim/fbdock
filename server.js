@@ -3,6 +3,8 @@ const https = require('https');
 const fs = require('fs');
 const path = require('path');
 const url = require('url');
+const downloadHandler = require('./api/download');
+const contactHandler = require('./api/contact');
 
 // Load .env variables natively if .env file exists
 const envFile = path.join(__dirname, '.env');
@@ -258,12 +260,8 @@ const server = http.createServer(async (req, res) => {
 
             try {
                 if (pathname === '/api/contact' || pathname === '/inc/contact.html') {
-                    delete require.cache[require.resolve('./api/contact')];
-                    const contactHandler = require('./api/contact');
                     await contactHandler(req, res);
                 } else {
-                    delete require.cache[require.resolve('./api/download')];
-                    const downloadHandler = require('./api/download');
                     await downloadHandler(req, res);
                 }
             } catch (err) {
@@ -348,4 +346,8 @@ function startServer(port) {
     });
 }
 
-startServer(DEFAULT_PORT);
+if (!process.env.VERCEL) {
+    startServer(DEFAULT_PORT);
+}
+
+module.exports = server;

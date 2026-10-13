@@ -1,4 +1,27 @@
 {
-  "cleanUrls": true,
-  "trailingSlash": false
+  "version": 2,
+  "builds": [
+    {
+      "src": "server.js",
+      "use": "@vercel/node",
+      "config": {
+        "includeFiles": [
+          "css/**",
+          "js/**",
+          "img/**",
+          "logo/**",
+          "fonts/**",
+          "cdn-cgi/**",
+          "inc/**",
+          "*.html"
+        ]
+      }
+    }
+  ],
+  "routes": [
+    {
+      "src": "/(.*)",
+      "dest": "server.js"
+    }
+  ]
 }
