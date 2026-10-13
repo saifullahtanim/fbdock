@@ -6,12 +6,12 @@
 
 <p align="center">
   <strong>Fast, Modern & Clean Facebook Video Downloader</strong><br>
-  ফেসবুকের যেকোনো পাবলিক ভিডিও ও রিলস (Reels) সহজে HD এবং SD কোয়ালিটিতে ডাউনলোড করার একটি চমৎকার ওয়েব অ্যাপ্লিকেশন।
+  A lightweight, high-performance web application to download any public Facebook video or Reel in true HD and SD quality.
 </p>
 
 <p align="center">
   <img src="https://img.shields.io/badge/Node.js-18+-green.svg" alt="Node.js" />
-  <img src="https://img.shields.io/badge/Engine-Vanilla%20JS%20%2B%20HTML5-blue.svg" alt="Frontend" />
+  <img src="https://img.shields.io/badge/Frontend-Vanilla%20JS%20%2B%20HTML5-blue.svg" alt="Frontend" />
   <img src="https://img.shields.io/badge/Downscaling-FFmpeg%20Static-red.svg" alt="FFmpeg" />
   <img src="https://img.shields.io/badge/Speed-Instant%201--Click-brightgreen.svg" alt="Speed" />
   <img src="https://img.shields.io/badge/License-ISC-orange.svg" alt="License" />
@@ -19,100 +19,110 @@
 
 ---
 
-## 📖 প্রজেক্ট পরিচিতি (About The Project)
+## 📖 About The Project
 
-**FBDock** হলো একটি হাই-স্পিড অনলাইন ফেসবুক ভিডিও ডাউনলোডার। কোনো প্রকার বিরক্তিকর পপ-আপ অ্যাড বা রিডাইরেক্ট ছাড়াই ব্যবহারকারীরা সরাসরি এক ক্লিকে ফেসবুক ভিডিও এবং রিলস ডাউনলোড করতে পারেন।
+**FBDock** is a modern, advertisement-free, and high-speed online Facebook video downloader. It enables users to extract and download high-definition (HD) and standard-definition (SD) Facebook videos and Reels instantly without intrusive pop-ups, redirects, or unnecessary page reloads.
 
-প্রজেক্টটি এমনভাবে তৈরি করা হয়েছে যাতে মোবাইল, ট্যাবলেট বা ডেস্কটপ—যেকোনো ডিভাইসে ইউজার ফ্রেন্ডলি অভিজ্ঞতা পাওয়া যায়।
-
----
-
-## ✨ মূল ফিচারসমূহ (Key Features)
-
-### 🎬 ১. ট্রু ডুয়াল রেজোলিউশন (HD & SD Quality)
-- **HD Quality:** ফেসবুকের আসল সর্বোচ্চ রেজোলিউশনে (720p / 1080p) ভিডিও ডাউনলোড হয়।
-- **Normal Quality (SD):** কম ডেটা খরচে হালকা সাইজের (360p / 480p) ভিডিও ডাউনলোড হয়। যদি কোনো ভিডিওতে আপস্ট্রিমে একটাই রেজোলিউশন থাকে, তাহলে ব্যাকএন্ডের **FFmpeg ইঞ্জিন** স্বয়ংক্রিয়ভাবে ভিডিওকে 480p-তে ডাউনস্কেল করে ছোট সাইজে ডেলিভার করে।
-
-### 🏷️ ২. সঠিক নামে অটো-সেভ (Smart Filename)
-- ভিডিওটির আসল ফেসবুক ক্যাপশন ও নাম অনুযায়ী ফাইল সেভ হয় (যেমন: `ভিডিওর নাম_HD.mp4` অথবা `ভিডিওর নাম_SD.mp4`)।
-- উইন্ডোজ এবং মোবাইল ফ্রেন্ডলি ক্যারেক্টার ক্লিনিং থাকায় কোনো ফাইলে ইনভ্যালিড চিহ্ন থাকে না।
-
-### ⚡ ৩. এক ক্লিকে ইনস্ট্যান্ট ডাউনলোড (Zero Reload / No Blank Tabs)
-- কোনো ব্ল্যাঙ্ক পেজ বা নতুন ট্যাব খোলে না।
-- ক্রোম, এজ, সাফারি ব্রাউজার ডাউনলোডারের পাশাপাশি **IDM (Internet Download Manager)** দিয়ে সরাসরি ডাউনলোড সাপোর্ট করে।
-- ১ ক্লিকে ঠিক ১টি ফাইলই ডাউনলোড হবে (কোনো ডুপ্লিকেট ডাউনলোড নেই)।
-
-### 📱 ৪. রেসপনসিভ ও প্রিমিয়াম ডিজাইন
-- আধুনিক কার্ড লেআউট ও থাম্বনেইল প্রিভিউ।
-- "How to Use" ইন্টারেক্টিভ গাইড (PC/Mac এবং iPhone/iPad এর জন্য আলাদা স্টেপ-বাই-স্টেপ টিউটোরিয়াল)।
-- ফাস্ট সার্চ ও প্রসেসিং প্রগ্রেসবার।
+Built with performance in mind, FBDock delivers a seamless experience across all platforms—smartphones, tablets, and desktop browsers.
 
 ---
 
-## 🛠️ ব্যবহৃত টেকনোলজি (Tech Stack)
+## ✨ Key Features
 
-| পার্ট | টেকনোলজি | ব্যবহার |
+### 🎬 1. True Dual Resolution (HD & SD Quality)
+- **HD Quality:** Downloads videos in their original maximum available resolution (720p / 1080p).
+- **Normal Quality (SD):** Optimized for low bandwidth and smaller file sizes (360p / 480p). If a video only provides a single stream upstream, the backend's real-time **FFmpeg Engine** automatically downscales it to 480p on-the-fly.
+
+### 🏷️ 2. Smart Filename Sanitization
+- Automatically names downloaded files after the actual video caption/title (e.g., `Video_Title_HD.mp4` or `Video_Title_SD.mp4`).
+- Strips invalid filesystem characters across Windows, macOS, Android, and iOS for error-free saving.
+
+### ⚡ 3. Instant 1-Click Download (Zero Reload / No Blank Tabs)
+- Direct streaming download without opening blank tabs or redirecting away from the page.
+- Fully compatible with native browser download managers as well as external tools like **Internet Download Manager (IDM)**.
+- Guaranteed single-file download per click (no duplicate downloads).
+
+### 📱 4. Clean & Responsive User Experience
+- Clean video card preview with thumbnails and metadata.
+- Built-in interactive step-by-step guides for both PC/Mac and iOS/Android users.
+- Live progress indicator and instant status feedback.
+
+---
+
+## 🛠️ Tech Stack
+
+| Component | Technology | Role |
 |---|---|---|
-| **Backend** | Node.js (HTTP / Stream API) | হাই-স্পিড স্ট্রিমিং ও প্রক্সি সার্ভার |
-| **Video Engine** | FFmpeg (`ffmpeg-static`) | রিয়েল-টাইম 480p SD ভিডিও ডাউনস্কেলিং |
-| **Scraper & API** | `rahad-all-downloader-v2` & `snapsave` | ফেসবুক ভিডিও লিংক ও মেটাডাটা এক্সট্র্যাকশন |
-| **Frontend** | Vanilla JavaScript & HTML5 | সুপার ফাস্ট ও লাইটওয়েট ক্লায়েন্ট |
-| **Styling** | Custom Vanilla CSS & Bootstrap Grid | মোবাইল ও ডেস্কটপ রেসপনসিভ UI |
+| **Backend** | Node.js (HTTP / Stream API) | Real-time proxy streaming and API endpoints |
+| **Video Engine** | FFmpeg (`ffmpeg-static`) | Real-time 480p downscaling & transcoder fallback |
+| **Scraper & Parser** | `rahad-all-downloader-v2` & `snapsave` | Multi-engine Facebook video URL extraction |
+| **Frontend** | Vanilla JavaScript & HTML5 | Fast, dependency-free interactive UI |
+| **Styling** | Custom CSS3 & Responsive Grid | Modern glassmorphism & mobile-first responsive layout |
 
 ---
 
-## 🚀 লোকাল মেশিনে চালানোর নিয়ম (Getting Started)
+## 🚀 Getting Started
 
-### পূর্বশর্ত (Prerequisites):
-আপনার কম্পিউটারে [Node.js](https://nodejs.org/) (ভার্সন 18 বা তার বেশি) ইনস্টল থাকতে হবে।
+Follow these steps to run the project locally on your machine:
 
-### ধাপ ১: ডিপেন্ডেন্সি ইনস্টল করুন
-প্রজেক্ট ফোল্ডারে টার্মিনাল ওপেন করে নিচের কমান্ডটি চালান:
+### Prerequisites
+Make sure you have [Node.js](https://nodejs.org/) (version 18 or newer) installed.
+
+### 1. Clone the Repository
+```bash
+git clone https://github.com/saifullahtanim/fbdock.git
+cd fbdock
+```
+
+### 2. Install Dependencies
 ```bash
 npm install
 ```
 
-### ধাপ ২: সার্ভার চালু করুন
+### 3. Start the Server
 ```bash
 npm start
 ```
 
-### ধাপ ৩: ব্রাউজারে ওপেন করুন
-আপনার পছন্দের ব্রাউজারে গিয়ে ভিজিট করুন:
+### 4. Open in Browser
+Visit the following URL in your web browser:
 ```text
 http://localhost:3000
 ```
 
 ---
 
-## 📁 ফাইল স্ট্রাকচার (Project Structure)
+## 📁 Project Structure
 
 ```text
-FB/
+fbdock/
 ├── api/
-│   ├── download.js         # ভিডিও মেটাডাটা ও মাল্টি-ইঞ্জিন এক্সট্র্যাক্টর
-│   └── contact.js          # কন্টাক্ট ও সাপোর্ট হ্যান্ডলার
+│   ├── download.js         # Video extraction & multi-engine fallback
+│   ├── stream.js           # Stream proxying endpoint
+│   └── contact.js          # Contact submission handler
 ├── css/
-│   └── style.css           # মূল কাস্টম স্টাইল ও রেসপনসিভ ডিজাইন
+│   ├── style.css           # Main custom stylesheet & UI styling
+│   └── bootstrap.min.css   # Responsive grid layout
 ├── js/
-│   ├── downloader.js       # ফ্রন্টএন্ড ডাউনলোড ও UI কন্ট্রোলার
-│   ├── scripts.js          # হেল্পার স্ক্রিপ্ট
-│   └── bootstrap.min.js    # বুটস্ট্র্যাপ UI লাইব্রেরি
-├── img/                    # লোগো, আইকন ও স্টেপ গাইড স্ক্রিনশট
-├── index.html              # প্রধান ল্যান্ডিং পেজ (FBDock UI)
-├── server.js               # মূল Node.js ব্যাকএন্ড ও FFmpeg স্ট্রিমিং সার্ভার
-├── package.json            # ডিপেন্ডেন্সি ও প্রজেক্ট কনফিগ
-└── README.md               # প্রজেক্ট ডকুমেন্টেশন
+│   ├── downloader.js       # Client-side download handler & UI logic
+│   └── scripts.js          # Utility scripts
+├── img/                    # Icons, illustrations, and tutorial assets
+├── index.html              # Main landing page (FBDock)
+├── index-2.html            # Secondary template
+├── server.js               # Node.js backend server & FFmpeg stream pipeline
+├── package.json            # Project dependencies & scripts
+└── README.md               # Documentation
 ```
 
 ---
 
-## 🔒 প্রাইভেসি ও ডিসক্লেইমার (Privacy & Disclaimer)
+## 🔒 Privacy & Disclaimer
 
-> **নোট:** FBDock সার্ভারে কোনো ভিডিও ফাইল জমা বা সংরক্ষণ (Store/Host) করে না। সমস্ত মিডিয়া ফাইল সরাসরি ফেসবুকের পাবলিক কনটেন্ট ডেলিভারি নেটওয়ার্ক (CDN) থেকে রিয়েল-টাইম প্রক্সি স্ট্রিমের মাধ্যমে ইউজারদের কাছে পৌঁছায়। এটি শুধুমাত্র ব্যক্তিগত ও শিক্ষামূলক ব্যবহারের জন্য তৈরি।
+> **Note:** FBDock does not host, store, or archive any copyrighted videos on its servers. All media streams are delivered directly through real-time proxies from Facebook's Content Delivery Network (CDN). This project is intended strictly for personal and educational use.
 
 ---
 
-## 👨‍💻 অবদান ও ক্রেডিট (Credits)
-Developed with ❤️ by **Saifulla Tanim**.
+## 👨‍💻 Author & Credits
+
+Developed with ❤️ by **[Saifulla Tanim](https://github.com/saifullahtanim)**.  
 All rights reserved © FBDock.
