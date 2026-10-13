@@ -1,7 +1,7 @@
 # 🚀 FBDock — Facebook Video Downloader Online
 
 <p align="center">
-  <img src="img/logo-facebook-video-downloader.png" alt="FBDock Logo" width="220" />
+  <img src="logo/logo1.png" alt="FBDock Logo" width="120" />
 </p>
 
 <p align="center">

@@ -33,9 +33,11 @@ module.exports = async function handler(req, res) {
         }
 
         const contentLength = fileRes.headers.get('content-length');
-        const contentType = filename.endsWith('.mp3') ? 'audio/mpeg' : 'video/mp4';
+        const contentType = 'video/mp4';
+        const asciiSafe = filename.replace(/[^\x20-\x7E]/g, '_').replace(/"/g, '');
+        const encoded = encodeURIComponent(filename);
         res.setHeader('Content-Type', contentType);
-        res.setHeader('Content-Disposition', `attachment; filename="${encodeURIComponent(filename)}"`);
+        res.setHeader('Content-Disposition', `attachment; filename="${asciiSafe}"; filename*=UTF-8''${encoded}`);
         if (contentLength) {
             res.setHeader('Content-Length', contentLength);
         }
