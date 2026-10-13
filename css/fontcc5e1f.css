@@ -1,0 +1,12 @@
+@font-face {
+  font-family: 'Rooney';
+  font-style: normal;
+  font-weight: 400;
+  src: url(fontcc/RooneyRegular.woff) format('woff');
+}
+@font-face {
+  font-family: 'Rooney';
+  font-style: normal;
+  font-weight: 700;
+  src: url(fontcc/RooneyBold.woff) format('woff');
+}

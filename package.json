@@ -1,0 +1,24 @@
+{
+  "name": "fbdock",
+  "version": "1.0.0",
+  "description": "FBDock - Facebook Video Downloader Online",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js"
+  },
+  "keywords": [
+    "facebook",
+    "video",
+    "downloader"
+  ],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "ffmpeg-static": "^5.3.0",
+    "lamejs": "^1.2.1",
+    "nodemailer": "^10.1.0",
+    "rahad-all-downloader-v2": "^2.7.6",
+    "snapsave-media-downloader": "^2.5.1"
+  }
+}

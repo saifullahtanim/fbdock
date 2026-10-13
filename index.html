@@ -1,0 +1,735 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<title>Facebook Video Downloader Online - Download Facebook Videos</title>
+	<meta name="description" content="Facebook Video Downloader Online, Download Facebook Videos and Save them directly from facebook watch to your computer or mobile for Free without Software. FBDock Best Facebook Video Downloader.">
+	<meta name="keywords" content="facebook video downloader,download facebook videos,facebook online downloader, facebook watch downloader, facebook watch download, grab facebook online, free facebook video downloader,baixar vídeos do Facebook,baixar facebook,video downloader extension chrome, facebook video downloader HD, facebook video downloader 4K">
+    <meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+	<link href="css/bootstrap.min.css" rel="stylesheet">
+	<link href="css/style.css?v=10" rel="stylesheet">
+	<script type="text/javascript" src="js/jquery.min.js"></script>
+	<link rel="apple-touch-icon-precomposed" sizes="144x144" href="logo/logo1.png?v=2">
+	<link rel="apple-touch-icon-precomposed" sizes="114x114" href="logo/logo1.png?v=2">
+	<link rel="apple-touch-icon-precomposed" sizes="72x72" href="logo/logo1.png?v=2">
+	<link rel="apple-touch-icon-precomposed" href="logo/logo1.png?v=2">
+	<link rel="shortcut icon" href="logo/logo1.png?v=2">
+	<meta name="google-site-verification" content="2aqAGGG-5Szz5PEYO9RNg48ycVxJEj1YffdjRGKASKw" />
+	<meta name="google-site-verification" content="hKDmSuXEvM5ZUELvEpu4DsksfXbrX98W5P3inIVeVMQ" />
+	<link rel="alternate" href="index.html" hreflang="en" />
+	<style>
+		.video-result-card {
+			max-width: 600px;
+			height: 200px;
+			background: #ffffff;
+			border: 1px solid #e1e8ed;
+			border-radius: 4px;
+			box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+			margin: 0 auto;
+			display: flex;
+			overflow: hidden;
+		}
+		.card-thumb-wrap {
+			width: 46%;
+			min-width: 46%;
+			height: 100%;
+			position: relative;
+			background: #111;
+			overflow: hidden;
+		}
+		.card-thumb-wrap img {
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+			object-position: center top;
+			display: block;
+		}
+		.card-details-wrap {
+			width: 54%;
+			height: 100%;
+			padding: 16px 20px;
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			text-align: left;
+			overflow: hidden;
+		}
+		@media (max-width: 640px) {
+			.video-result-card {
+				height: auto !important;
+				max-width: 100% !important;
+				flex-direction: column !important;
+			}
+			.card-thumb-wrap {
+				width: 100% !important;
+				min-width: 100% !important;
+				height: 190px !important;
+			}
+			.card-details-wrap {
+				width: 100% !important;
+				height: auto !important;
+				padding: 16px !important;
+			}
+		}
+		#more-options-dropdown a,
+		#more-options-dropdown a:focus,
+		#more-options-dropdown a:active,
+		#more-options-dropdown a:hover,
+		#card-sd-btn,
+		#card-hd-btn,
+		#card-sd-btn:focus,
+		#card-hd-btn:focus,
+		#toggle-options-btn:focus {
+			outline: none !important;
+			outline: 0 !important;
+			border: none !important;
+			box-shadow: none !important;
+			text-decoration: none !important;
+			-webkit-tap-highlight-color: transparent !important;
+		}
+
+		/* Modern FBDock How to Use Modal (Compact 1-Page Layout) */
+		#fbdock_howto .modal-dialog {
+			max-width: 620px;
+			width: 94%;
+			margin: 25px auto;
+		}
+		#fbdock_howto .modal-content {
+			border-radius: 12px;
+			border: 1px solid #e1e8ed;
+			box-shadow: 0 16px 40px -10px rgba(0, 0, 0, 0.25);
+			overflow: hidden;
+			background: #ffffff;
+		}
+		#fbdock_howto .modal-header {
+			padding: 12px 20px;
+			background: #ffffff;
+			border-bottom: 1px solid #edf2f7;
+		}
+		#fbdock_howto .modal-title {
+			margin: 0;
+			font-size: 17px;
+			font-weight: 700;
+			color: #1a202c;
+			display: flex;
+			align-items: center;
+			gap: 8px;
+		}
+		#fbdock_howto .modal-body {
+			padding: 14px 20px 10px 20px;
+			text-align: center;
+		}
+
+		/* Centered Segmented Control */
+		.howto-pill-switcher {
+			display: inline-flex !important;
+			background: #f1f5f9;
+			padding: 4px;
+			border-radius: 30px;
+			border: 1px solid #e2e8f0;
+			margin: 0 auto 12px auto;
+			list-style: none;
+		}
+		.howto-pill-switcher > li {
+			float: none !important;
+			display: inline-block !important;
+			margin: 0 !important;
+		}
+		.howto-pill-switcher > li > a {
+			border-radius: 24px !important;
+			font-weight: 700 !important;
+			font-size: 13.5px !important;
+			color: #475569 !important;
+			padding: 6px 20px !important;
+			transition: all 0.2s ease !important;
+			border: none !important;
+			display: inline-flex !important;
+			align-items: center !important;
+			gap: 6px !important;
+			background: transparent !important;
+			margin: 0 !important;
+			text-decoration: none !important;
+		}
+		.howto-pill-switcher > li.active > a,
+		.howto-pill-switcher > li.active > a:focus,
+		.howto-pill-switcher > li.active > a:hover {
+			background: #20354b !important;
+			color: #ffffff !important;
+			box-shadow: 0 2px 8px rgba(32, 53, 75, 0.28) !important;
+		}
+
+		/* Image Stage */
+		.howto-stage {
+			background: #ffffff;
+			border: 1px solid #e9edf0;
+			border-radius: 10px;
+			padding: 10px 14px;
+			position: relative;
+			overflow: hidden;
+		}
+		.howto-stage .carousel-inner .item img {
+			width: 100%;
+			max-height: 330px;
+			object-fit: contain;
+			margin: 0 auto;
+			display: block;
+			border-radius: 6px;
+		}
+
+		/* Step Bottom Navigation Bar */
+		.howto-nav-bar {
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+			margin-top: 14px;
+			padding: 8px 14px;
+			background: #f8fafc;
+			border: 1px solid #eef2f6;
+			border-radius: 10px;
+		}
+		.howto-nav-btn {
+			font-weight: 700 !important;
+			font-size: 13.5px !important;
+			padding: 8px 22px !important;
+			border-radius: 8px !important;
+			transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1) !important;
+			display: inline-flex !important;
+			align-items: center !important;
+			gap: 6px !important;
+			cursor: pointer !important;
+			user-select: none !important;
+			border: 1px solid transparent !important;
+			box-shadow: none !important;
+			outline: none !important;
+		}
+		.howto-nav-btn.prev-btn {
+			background: #ffffff !important;
+			color: #334155 !important;
+			border-color: #cbd5e1 !important;
+			box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05) !important;
+		}
+		.howto-nav-btn.prev-btn:hover:not(:disabled) {
+			background: #f1f5f9 !important;
+			color: #0f172a !important;
+			border-color: #94a3b8 !important;
+			transform: translateX(-1px) !important;
+		}
+		.howto-nav-btn.prev-btn:disabled {
+			opacity: 0.4 !important;
+			cursor: not-allowed !important;
+			background: #f8fafc !important;
+			border-color: #e2e8f0 !important;
+			color: #94a3b8 !important;
+			box-shadow: none !important;
+			transform: none !important;
+		}
+		.howto-nav-btn.next-btn {
+			background: linear-gradient(135deg, #1877f2 0%, #0d65d9 100%) !important;
+			color: #ffffff !important;
+			border-color: #1877f2 !important;
+			box-shadow: 0 3px 10px rgba(24, 119, 242, 0.3) !important;
+		}
+		.howto-nav-btn.next-btn:hover {
+			background: linear-gradient(135deg, #2083ff 0%, #1570e8 100%) !important;
+			box-shadow: 0 5px 15px rgba(24, 119, 242, 0.45) !important;
+			transform: translateY(-1px) !important;
+		}
+		.howto-nav-btn.finish-btn {
+			background: linear-gradient(135deg, #00b894 0%, #00a383 100%) !important;
+			border-color: #00b894 !important;
+			color: #ffffff !important;
+			box-shadow: 0 3px 10px rgba(0, 184, 148, 0.35) !important;
+		}
+		.howto-nav-btn.finish-btn:hover {
+			background: linear-gradient(135deg, #00c79f 0%, #00b38f 100%) !important;
+			box-shadow: 0 5px 15px rgba(0, 184, 148, 0.45) !important;
+			transform: translateY(-1px) !important;
+		}
+		.howto-step-badge {
+			font-size: 13.5px;
+			font-weight: 700;
+			color: #334155;
+			display: flex;
+			align-items: center;
+			gap: 12px;
+			white-space: nowrap;
+		}
+		.howto-step-badge span {
+			white-space: nowrap;
+		}
+		.howto-dots {
+			display: inline-flex;
+			gap: 6px;
+			align-items: center;
+		}
+		.howto-dot {
+			width: 8px;
+			height: 8px;
+			border-radius: 50%;
+			background: #cbd5e1;
+			transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+			cursor: pointer;
+		}
+		.howto-dot:hover:not(.active) {
+			background: #94a3b8;
+			transform: scale(1.15);
+		}
+		.howto-dot.active {
+			background: #1877f2;
+			width: 24px;
+			border-radius: 4px;
+			box-shadow: 0 2px 6px rgba(24, 119, 242, 0.3);
+		}
+
+		/* Modal Footer */
+		#fbdock_howto .modal-footer {
+			padding: 10px 20px;
+			border-top: 1px solid #edf2f7;
+			background: #f8fafc;
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+		}
+
+		/* Mobile & Responsive Rules for How to Use FBDock Modal */
+		@media (max-width: 600px) {
+			#fbdock_howto .modal-dialog {
+				width: 95% !important;
+				margin: 10px auto !important;
+			}
+			#fbdock_howto .modal-header {
+				padding: 10px 14px !important;
+			}
+			#fbdock_howto .modal-title {
+				font-size: 15.5px !important;
+			}
+			#fbdock_howto .modal-body {
+				padding: 10px 12px 6px 12px !important;
+			}
+			.howto-pill-switcher {
+				margin: 0 auto 10px auto !important;
+				padding: 3px !important;
+			}
+			.howto-pill-switcher > li > a {
+				padding: 5px 14px !important;
+				font-size: 12.5px !important;
+			}
+			.howto-stage {
+				padding: 6px 8px !important;
+				border-radius: 8px !important;
+			}
+			.howto-stage .carousel-inner .item img {
+				max-height: 230px !important;
+			}
+			.howto-nav-bar {
+				margin-top: 10px !important;
+				padding: 6px 8px !important;
+				gap: 4px !important;
+			}
+			.howto-nav-btn {
+				padding: 6px 12px !important;
+				font-size: 12px !important;
+				border-radius: 6px !important;
+				white-space: nowrap !important;
+			}
+			.howto-step-badge {
+				font-size: 12px !important;
+				gap: 6px !important;
+				white-space: nowrap !important;
+				flex-shrink: 0 !important;
+			}
+			.howto-step-badge span {
+				white-space: nowrap !important;
+			}
+			.howto-dots {
+				gap: 4px !important;
+			}
+			.howto-dot {
+				width: 6px !important;
+				height: 6px !important;
+			}
+			.howto-dot.active {
+				width: 16px !important;
+			}
+			#fbdock_howto .modal-footer {
+				padding: 8px 12px !important;
+			}
+			#fbdock_howto .modal-footer a {
+				font-size: 12px !important;
+			}
+			#fbdock_howto .modal-footer button {
+				padding: 6px 16px !important;
+				font-size: 12px !important;
+			}
+		}
+
+		@media (max-width: 380px) {
+			.howto-nav-btn {
+				padding: 5px 9px !important;
+				font-size: 11.5px !important;
+				gap: 3px !important;
+			}
+			.howto-step-badge {
+				font-size: 11px !important;
+				gap: 4px !important;
+			}
+			.howto-stage .carousel-inner .item img {
+				max-height: 200px !important;
+			}
+		}
+
+		@media (max-height: 640px) {
+			#fbdock_howto .modal-dialog {
+				margin: 6px auto !important;
+			}
+			.howto-stage .carousel-inner .item img {
+				max-height: 180px !important;
+			}
+			.howto-nav-bar {
+				margin-top: 6px !important;
+			}
+		}
+
+		@keyframes spin {
+			0% { transform: rotate(0deg); }
+			100% { transform: rotate(360deg); }
+		}
+		.spin-icon {
+			display: inline-block;
+			animation: spin 0.9s infinite linear;
+		}
+
+		@keyframes pulseDownload {
+			0% { transform: translateY(0); opacity: 1; }
+			100% { transform: translateY(3px); opacity: 0.7; }
+		}
+	</style>
+</head>
+
+<body>
+	<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-82ERN9JZD3" type="text/javascript"></script>
+<script type="text/javascript">
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-82ERN9JZD3');
+</script>
+	<nav class="navbar navbar-default navbar-static-top" style="margin-bottom: 0px; background-color: #2c3e50 !important; min-height: 60px;" role="navigation">
+		<div class="container">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#menu">
+					<span class="sr-only">Toggle navigation</span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand" href="index.html" style="display: flex; align-items: center; height: 60px; padding: 0 15px;">
+					<img style="height: 42px; width: auto; object-fit: contain; margin-top: 0;" alt="FBDock"
+						src="logo/logo2.png?v=5">
+				</a>
+			</div>
+						<div class="collapse navbar-collapse" id="menu">
+				<ul class="nav navbar-nav">
+					<li style="display:none">
+						<a href="index.html">Video Downloader</a>
+					</li>
+					<li class="dropdown">
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+							aria-expanded="false"><span class="glyphicon glyphicon-question-sign"></span> How to? <span
+								class="caret"></span></a>
+						<ul class="dropdown-menu">
+							<li><a href="how-to-download-facebook-videos.html">How to use FBDock?</a></li>
+							<li role="separator" class="divider"></li>
+							<li><a href="how-to-download-private-facebook-videos-online.html">How to use Private video Downloader?</a></li>
+						</ul>
+					</li>
+					<li class="dropdown">
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+							aria-expanded="false"><span class="glyphicon glyphicon-option-vertical"></span> More <span
+								class="caret"></span></a>
+						<ul class="dropdown-menu">
+							<li>
+								<a href="private-downloader.html"><span class="glyphicon glyphicon-eye-close"
+										aria-hidden="true"></span> Private Video Downloader</a>
+							</li>
+						</ul>
+					</li>
+				</ul>
+				<ul class="nav navbar-nav navbar-right">
+					<li>
+						<a href="contact.html"><span class="glyphicon glyphicon-comment" aria-hidden="true"></span> Contact us</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</nav>
+	<div class="jumbotron" style="padding-top: 14px; padding-bottom: 10px; margin-bottom: 0px;">
+		<div class="container">
+			<div class="row clearfix">
+				<!-- Home Input View -->
+				<div id="home-view" class="col-xs-12 text-center">
+					<a href="index.html" style="outline: none; text-decoration: none;"><img
+							class="img-responsive center-block" src="logo/logo3.png" alt="Download Facebook Videos"
+							title="Facebook Video Downloader Online - Download Facebook Videos" width="310"></a>
+					<h1 style="font-size:26px;font-weight:700;color:#1c1e21;margin-top:14px;margin-bottom:4px;letter-spacing:-0.4px;">
+						Facebook Video Downloader
+					</h1>
+					<h2 style="margin-top:0px;margin-bottom:22px;font-size:16px;color:#7f8c8d;font-weight:400;">
+						Download Facebook Videos Online
+					</h2>
+					<form id="downloadform" onsubmit="handleDownload(event); return false;" style="margin-bottom: 6px;">
+						<div class="input-group col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 col-xs-12">
+							<input id="downloadinput" name="URLz" class="form-control input-lg"
+								placeholder="Paste Facebook Video Link ..." type="text"
+								style="height: 52px; font-size: 17px; padding-left: 45px; border-radius: 4px 0 0 4px; border: 1px solid #ccd0d5; box-shadow: none;"
+								required>
+							<button type="button" class="btn btn-xs paste-button text-primary" id="paste-button"
+								style="position: absolute; left: 14px; top: 50%; transform: translateY(-50%); z-index: 3; background: transparent; border: none; font-size: 22px; opacity: 0.65; padding: 0;">
+								<span class="glyphicon glyphicon-paste" id="paste-icon"></span></button>
+							<span class="input-group-btn"><button id="downloadbtn" class="btn input-lg" type="submit"
+									style="height: 52px; background-color: #2c3e50; border-color: #2c3e50; color: #ffffff; font-weight: 700; font-size: 16px; padding: 0 26px; border-radius: 0 4px 4px 0; display: inline-flex; align-items: center; gap: 8px;"><strong><span
+											class="glyphicon glyphicon-arrow-down" aria-hidden="true"></span> Download</strong></button></span>
+						</div>
+					</form>
+					<div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1"
+						style="padding:0;margin-top: 0px;padding-left: 3px;">
+						<div class="progress" id="progress"
+							style="width: 0%;background-color: rgb(255, 255, 255);height: 6px;margin-bottom: 6px;">
+							<div id="progressbar" class="progress-bar" role="progressbar" aria-label="Progress Bar"
+								aria-valuenow="45" aria-valuemin="0" aria-valuemax="100"
+								style="width: 0%;background: rgb(6,224,156); background: linear-gradient(90deg, rgba(6,224,156,1) 0%, rgba(0,142,200,1) 100%); position: absolute;top: 0;left: 0;height: 6px;min-width: 0;-webkit-transition: width 0.3s linear;transition: width 0.3s linear;">
+								<span class="sr-only">0% Complete</span>
+							</div>
+						</div>
+					</div>
+					<div id="error-container" class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 col-xs-12"
+						style="display: none; margin-bottom: 6px;"></div>
+					<!-- Button trigger modal -->
+					<div class="col-md-8 col-md-offset-2" style="margin-top: 14px;">
+						<button type="button" class="btn btn-info" data-toggle="modal" data-target="#fbdock_howto"
+							style="background-color: #2980b9; border-color: #2980b9; color: #ffffff; padding: 8px 22px; font-size: 14.5px; font-weight: 600; border-radius: 4px; box-shadow: 0 2px 6px rgba(0,0,0,0.08);">
+							<span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span>
+							<strong>How to Use FBDock</strong>
+						</button>
+					</div>
+				</div>
+
+				<!-- Result View -->
+				<div id="result-view" class="col-xs-12 text-center" style="display: none; padding-bottom: 20px;">
+					<!-- Back button -->
+					<div style="text-align: left; margin-bottom: 14px;">
+						<button type="button" onclick="resetToHome()" class="btn"
+							style="background-color: #7b9195; color: #ffffff; font-weight: 700; border-radius: 4px; padding: 8px 18px; font-size: 15px; border: none; box-shadow: none; display: inline-flex; align-items: center; gap: 7px; cursor: pointer;">
+							<span style="font-size: 15px; line-height: 1;">&#11013;</span> Download Another Video
+						</button>
+					</div>
+
+					<!-- Header -->
+					<img class="img-responsive center-block" src="logo/logo3.png" alt="Download Facebook Videos"
+						width="280">
+					<h2 style="color: #1e394f; font-size: 22px; font-weight: 700; margin-top: 6px; margin-bottom: 16px; letter-spacing: -0.3px;">
+						Facebook Video Downloader
+					</h2>
+
+					<!-- Video Details Card (Compact Image 4 exact dimensions) -->
+					<div class="video-result-card">
+						<!-- Thumbnail -->
+						<div class="card-thumb-wrap">
+							<img id="card-thumbnail" src="" alt="Thumbnail">
+							<span id="card-duration" style="display: none;">00:00</span>
+						</div>
+
+						<!-- Video Details -->
+						<div class="card-details-wrap">
+							<h3 id="card-author"
+								style="text-align: center; margin: 0 0 6px 0; font-size: 17px; font-weight: 700; color: #1c1e21; line-height: 1.3; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;">
+								Facebook Video
+							</h3>
+							<!-- Small subtle centered divider like Image 4 -->
+							<div style="width: 38px; height: 2px; background: #ccd0d5; margin: 0 auto 10px auto; border-radius: 1px;"></div>
+							
+							<p style="margin: 0 0 6px 0; font-size: 13px; color: #606770; line-height: 1.4;">
+								<strong style="color: #1c1e21; font-weight: 700;">Description:</strong> <span id="card-description" style="display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; font-weight: 400;">Facebook Video Download</span>
+							</p>
+							<p style="margin: 0; font-size: 13px; color: #606770;">
+								<strong style="color: #1c1e21; font-weight: 700;">Duration:</strong> <span id="card-duration-text" style="color: #606770; font-weight: 400;">00:30</span>
+							</p>
+						</div>
+					</div>
+
+					<!-- Quality Download Buttons (Side-by-side below card like Image 4) -->
+					<div style="margin-top: 20px; display: flex; justify-content: center; gap: 16px; flex-wrap: wrap;">
+						<button type="button" id="card-sd-btn" onclick="triggerDownload('sd', event)"
+							class="btn"
+							style="background-color: #20354b; color: #ffffff; font-weight: 700; font-size: 14px; padding: 10px 22px; border-radius: 4px; border: none; box-shadow: 0 2px 6px rgba(0,0,0,0.12); display: inline-flex; align-items: center; justify-content: center;">
+							<span>Download Video in Normal Quality</span>
+						</button>
+						<button type="button" id="card-hd-btn" onclick="triggerDownload('hd', event)"
+							class="btn"
+							style="background-color: #20354b; color: #ffffff; font-weight: 700; font-size: 14px; padding: 10px 22px; border-radius: 4px; border: none; box-shadow: 0 2px 6px rgba(0,0,0,0.12); display: inline-flex; align-items: center; justify-content: center;">
+							<span>Download Video in HD Quality</span>
+						</button>
+					</div>
+
+					<!-- More Options Toggle -->
+					<div style="margin-top: 14px; text-align: center;">
+						<button type="button" id="toggle-options-btn" onclick="toggleMoreOptions()" class="btn"
+							style="background-color: #7b9195; color: #ffffff; font-weight: 700; font-size: 13.5px; padding: 8px 24px; border-radius: 4px; border: none; box-shadow: none;">
+							More Options &nbsp;<span id="more-options-caret" style="font-size: 11px;">&#9660;</span>
+						</button>
+					</div>
+
+					<!-- More Options Dropdown -->
+					<div id="more-options-dropdown"
+						style="display: none; background: #ffffff; box-shadow: 0 4px 18px rgba(0,0,0,0.06); border-radius: 4px; max-width: 440px; margin: 14px auto 0 auto; padding: 18px 28px; border: 1px solid #e9edf0;">
+						<div
+							style="display: flex; justify-content: center; gap: 32px; text-align: left; flex-wrap: wrap;">
+							<!-- Force SD & Force HD -->
+							<a id="force-sd-btn" href="javascript:void(0)" onclick="triggerDownload('sd', event)"
+								style="color: #00b894; font-weight: 700; font-size: 15px; text-decoration: none; display: flex; align-items: center; gap: 8px; cursor: pointer; outline: none; border: none; box-shadow: none;">
+								<span class="glyphicon glyphicon-arrow-down"
+									style="font-size: 15px; color: #00b894;"></span> Force Download SD
+							</a>
+							<a id="force-hd-btn" href="javascript:void(0)" onclick="triggerDownload('hd', event)"
+								style="color: #00b894; font-weight: 700; font-size: 15px; text-decoration: none; display: flex; align-items: center; gap: 8px; cursor: pointer; outline: none; border: none; box-shadow: none;">
+								<span class="glyphicon glyphicon-arrow-down"
+									style="font-size: 15px; color: #00b894;"></span> Force Download HD
+							</a>
+						</div>
+					</div>
+				</div>
+				<br />
+				<!-- Modal: How to Use FBDock (Compact 1-Page Layout) -->
+				<div class="modal fade how-to-modal" id="fbdock_howto" tabindex="-1" role="dialog"
+					aria-labelledby="fbdock_howto_label">
+					<div class="modal-dialog" role="document">
+						<div class="modal-content">
+							<div class="modal-header">
+								<button type="button" class="close" data-dismiss="modal" aria-label="Close" style="font-size: 24px; color: #64748b; opacity: 0.8; margin-top: -2px;">&times;</button>
+								<h3 class="modal-title" id="fbdock_howto_label">
+									<span class="glyphicon glyphicon-info-sign" style="color: #1877f2; font-size: 16px;"></span>
+									How to Use FBDock
+								</h3>
+							</div>
+							<div class="modal-body">
+								<!-- Centered Device Switcher (Symmetrical, zero gaps) -->
+								<div style="text-align: center;">
+									<ul class="howto-pill-switcher">
+										<li class="active"><a data-toggle="tab" href="#pcmac"><img width="18" src="img/windows.png"> PC / Mac</a></li>
+										<li><a data-toggle="tab" href="#ios"><img width="16" src="img/ios.png"> iPhone / iPad</a></li>
+									</ul>
+								</div>
+
+								<div class="tab-content">
+									<!-- PC / Mac Tab -->
+									<div id="pcmac" class="tab-pane fade in active">
+										<div class="howto-stage">
+											<div class="carousel slide" id="carousel-pcmac" data-ride="carousel" data-interval="false">
+												<div class="carousel-inner" role="listbox">
+													<div class="item active">
+														<img class="img-responsive center-block" src="img/download-facebook-video-step-1.png" alt="Step 1: Copy Facebook Video Link">
+													</div>
+													<div class="item">
+														<img class="img-responsive center-block" src="img/download-facebook-video-step-2.png" alt="Step 2: Paste Link in FBDock">
+													</div>
+													<div class="item">
+														<img class="img-responsive center-block" src="img/download-facebook-video-step-3.png" alt="Step 3: Download Facebook Video">
+													</div>
+												</div>
+											</div>
+										</div>
+
+										<!-- Bottom Step Navigator Bar -->
+										<div class="howto-nav-bar">
+											<button type="button" class="howto-nav-btn prev-btn" id="pcmac-prev-btn" onclick="stepHowTo('pcmac', 'prev')" disabled>
+												<span class="glyphicon glyphicon-chevron-left" style="font-size: 10px;"></span> Previous
+											</button>
+											<div class="howto-step-badge">
+												<span>Step <strong id="pcmac-step-num">1</strong> of 3</span>
+												<div class="howto-dots">
+													<span class="howto-dot active" id="pcmac-dot-0" onclick="stepHowTo('pcmac', 0)"></span>
+													<span class="howto-dot" id="pcmac-dot-1" onclick="stepHowTo('pcmac', 1)"></span>
+													<span class="howto-dot" id="pcmac-dot-2" onclick="stepHowTo('pcmac', 2)"></span>
+												</div>
+											</div>
+											<button type="button" class="howto-nav-btn next-btn" id="pcmac-next-btn" onclick="stepHowTo('pcmac', 'next')">
+												Next <span class="glyphicon glyphicon-chevron-right" style="font-size: 10px;"></span>
+											</button>
+										</div>
+									</div>
+
+									<!-- iPhone / iPad Tab -->
+									<div id="ios" class="tab-pane fade">
+										<div class="howto-stage">
+											<div class="carousel slide" id="carousel-ios" data-ride="carousel" data-interval="false">
+												<div class="carousel-inner" role="listbox">
+													<div class="item active">
+														<img class="img-responsive center-block" src="img/download-facebook-video-ios-modal-1.png" alt="iPhone Step 1: Copy Video Link">
+													</div>
+													<div class="item">
+														<img class="img-responsive center-block" src="img/download-facebook-video-ios-modal-2.png" alt="iPhone Step 2: Paste Link in Browser">
+													</div>
+													<div class="item">
+														<img class="img-responsive center-block" src="img/download-facebook-video-ios-modal-3.png" alt="iPhone Step 3: Choose Quality & Save">
+													</div>
+												</div>
+											</div>
+										</div>
+
+										<!-- Bottom Step Navigator Bar -->
+										<div class="howto-nav-bar">
+											<button type="button" class="howto-nav-btn prev-btn" id="ios-prev-btn" onclick="stepHowTo('ios', 'prev')" disabled>
+												<span class="glyphicon glyphicon-chevron-left" style="font-size: 10px;"></span> Previous
+											</button>
+											<div class="howto-step-badge">
+												<span>Step <strong id="ios-step-num">1</strong> of 3</span>
+												<div class="howto-dots">
+													<span class="howto-dot active" id="ios-dot-0" onclick="stepHowTo('ios', 0)"></span>
+													<span class="howto-dot" id="ios-dot-1" onclick="stepHowTo('ios', 1)"></span>
+													<span class="howto-dot" id="ios-dot-2" onclick="stepHowTo('ios', 2)"></span>
+												</div>
+											</div>
+											<button type="button" class="howto-nav-btn next-btn" id="ios-next-btn" onclick="stepHowTo('ios', 'next')">
+												Next <span class="glyphicon glyphicon-chevron-right" style="font-size: 10px;"></span>
+											</button>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="modal-footer">
+								<a href="how-to-download-facebook-videos.html" style="color: #64748b; font-size: 13px; font-weight: 600; text-decoration: none;">
+									Need more help? <span style="text-decoration: underline; color: #1877f2;">Full Tutorial</span> &rarr;
+								</a>
+								<button type="button" class="btn" data-dismiss="modal" style="background-color: #20354b; color: #ffffff; font-weight: 700; font-size: 13px; padding: 7px 22px; border-radius: 6px; border: none; box-shadow: 0 2px 6px rgba(32,53,75,0.2);">Got it</button>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- Modal END-->
+			</div>
+		</div>
+	</div>
+	<script type="text/javascript" src="js/downloader.js?v=11"></script>
+	<div class="container footer-container" style="margin-top: auto !important; margin-bottom: 12px;">
+		<div class="well col-md-12"
+			style="padding: 12px 18px; margin-bottom: 0px; font-size: 13px; line-height: 1.45;">
+			<center>
+				<strong>Facebook Video Downloader Online</strong> <br />
+				<a href="how-to-download-facebook-videos.html">How to Download Facebook Videos</a> |
+				<a href="terms.html">Terms of Use</a> |
+				<a href="privacy.html">Privacy Policy</a> |
+				<a href="contact.html">Contact us</a> |
+				<a href="about.html">About</a> |
+				<a href="https://napa-extraa.vercel.app/" target="_blank"
+					rel="noopener noreferrer">Napa Extra</a><br />
+				FBDock does not host any videos on its servers. All videos that you download are hosted on Facebook's CDNs.<br><p style="margin: 2px 0 0 0;"><strong>FBDock is a Social Media Services website and is not associated by any means to Facebook or the Facebook brand and doesn't have anything to do with Meta Platforms, Inc. <a href="disclaimer.html">Read the full Disclaimer</a>.</strong></p>
+			</center>
+		</div>
+	</div>
+	<script type="text/javascript" src="js/bootstrap.min.js" defer></script>
+	<script type="text/javascript" src="js/scripts.js?v=3" defer></script>
+</body>
+
+</html>
