@@ -277,6 +277,8 @@ const server = http.createServer(async (req, res) => {
     let safePath = path.normalize(pathname).replace(/^(\.\.[\/\\])+/, '');
     if (safePath === '/' || safePath === '\\') {
         safePath = '/index.html';
+    } else if (safePath === '/favicon.ico') {
+        safePath = '/logo/logo1.png';
     }
 
     const filePath = path.join(PUBLIC_DIR, safePath);
@@ -303,9 +305,11 @@ const server = http.createServer(async (req, res) => {
         };
 
         if (isStaticAsset) {
-            // Cache images and fonts, but revalidate js and css immediately
-            if (['.js', '.css'].includes(ext)) {
-                headers['Cache-Control'] = 'no-cache, must-revalidate';
+            // For fonts and images: enable Vercel Edge CDN global caching for instant 0ms delivery
+            if (['.png', '.jpg', '.jpeg', '.gif', '.svg', '.ico', '.woff', '.woff2', '.ttf', '.eot'].includes(ext)) {
+                headers['Cache-Control'] = 'public, max-age=31536000, s-maxage=31536000, immutable';
+            } else if (['.js', '.css'].includes(ext)) {
+                headers['Cache-Control'] = 'public, max-age=3600, s-maxage=86400, stale-while-revalidate=86400';
             } else {
                 headers['Cache-Control'] = 'public, max-age=86400';
             }
